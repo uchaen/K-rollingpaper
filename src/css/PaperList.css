@@ -1,6 +1,9 @@
 .PaperList {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    padding: 20px;
     z-index: -100;
 
     background-color: var(--bg-color);

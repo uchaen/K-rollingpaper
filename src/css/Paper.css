@@ -1,0 +1,18 @@
+.Paper {
+    width: 270px;
+    height: 270px;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    background-color: white;
+}
+
+#contents {
+    height: 230px;
+}
+
+#author {
+    margin-top: 20px;
+    text-align: right;
+}
