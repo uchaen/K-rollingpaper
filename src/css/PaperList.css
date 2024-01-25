@@ -1,10 +1,31 @@
 .PaperList {
+    background-color: var(--bg-color);
+    z-index: -100;
+}
+
+#paperListGrid{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-
     padding: 20px;
-    z-index: -100;
+}
 
-    background-color: var(--bg-color);
+#letterCreateBtn {
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+
+    text-align: center;
+    line-height: 93px;
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: var(--point-color);
+    box-shadow: 2px 2px 10px 0 rgb(0, 0, 0, 0.2);
+
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
 }
