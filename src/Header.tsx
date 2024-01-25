@@ -1,5 +1,5 @@
 import "./css/Header.css";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState } from "react";
 
 function Header() {
   const [title, setTitle] = useState("");
