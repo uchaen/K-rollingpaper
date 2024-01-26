@@ -1,0 +1,63 @@
+/* modal창 */
+.modalBody {
+  position: absolute;
+  /* width: 700px; */
+  /* height: 540px; */
+  padding: 50px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+}
+
+#modalCloseBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.popupBody {
+  position: absolute;
+  width: 200px;
+  height: 120px;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+}
+
+.popupBody > div {
+  padding: 8px 0;
+}
+#deleteGuideText {
+  padding-bottom: 20px;
+}
+#confirmDel {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  color: red;
+  font-weight: 800;
+}
+#cancelDel {
+  color: gray;
+}
+
+/* modal창 외부화면 */
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+#modalCloseBtn:hover {
+  cursor: pointer;
+}

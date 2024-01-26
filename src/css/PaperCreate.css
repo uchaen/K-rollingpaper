@@ -1,0 +1,15 @@
+.PaperCreate{
+    display: block;
+}
+
+#contentsTextarea {
+    width: 660px;
+    height: 100px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+#authorTextarea {
+    width: 40%;
+    padding: 10px 20px;
+}
