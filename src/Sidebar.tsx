@@ -2,7 +2,7 @@ import "./css/Sidebar.css";
 import { ChangeEvent, useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import Modal from "./Modal";
-import PaperCreate from "./PaperCreate";
+import PaperModal from "./PaperModal";
 
 function Sidebar() {
   const [fetchTitleList, setFetchTitleList] = useState<string[]>(["test", "test2", "te3"]);
@@ -20,7 +20,9 @@ function Sidebar() {
   },[fetchTitleList])
 
   useEffect(() => {
-    if(searchInput != "") {
+    if(searchInput === "") {
+      setTitleList(fetchTitleList);
+    } else {
       setTitleList(fetchTitleList.filter((element) => element.includes(searchInput)));
     }
   }, [searchInput]);
@@ -59,7 +61,7 @@ function Sidebar() {
       </div>
       {isCreateModalOpened && (
         <Modal closeModal={() => setIsCreateModalOpened(false)}>
-          <PaperCreate />
+          <PaperModal usage="create"/>
         </Modal>
       )}
     </div>
