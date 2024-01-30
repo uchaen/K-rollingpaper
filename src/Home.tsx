@@ -15,7 +15,7 @@ function Home() {
         <Header />
         <PaperList />
       </div>
-      <div id="letterCreateBtn" onClick={() => setIsCreateModalOpened(true)}>
+      <div className="cursor" id="letterCreateBtn" onClick={() => setIsCreateModalOpened(true)}>
         +
       </div>
       {isCreateModalOpened && (

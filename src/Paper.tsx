@@ -8,7 +8,7 @@ type Props = {
 
 function Paper({contents, author}:Props) {
   return (
-    <div className="Paper">
+    <div className="Paper cursor">
         <div id="contents">{contents}</div>
         <div id="author">- {author}</div>
     </div>

@@ -41,10 +41,10 @@ function Sidebar() {
       </div>
       {titleList.map((element, index) =>
         selectedTitle === index ? (
-          <div className="titleListElement selectedTitle">{element}</div>
+          <div className="titleListElement selectedTitle cursor">{element}</div>
         ) : (
           <div
-            className="titleListElement"
+            className="titleListElement cursor"
             onClick={() => {
               setSelectedTitle(index);
             }}
@@ -54,7 +54,7 @@ function Sidebar() {
         )
       )}
       <div
-        className="titleListElement"
+        className="titleListElement cursor"
         onClick={() => setIsCreateModalOpened(true)}
       >
         롤링페이퍼 생성 +

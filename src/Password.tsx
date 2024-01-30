@@ -15,11 +15,11 @@ function Password({ usage }: Props) {
         maxLength={10}
       />
       {usage === "create" ? (
-        <div className="passwordBtn right">저장</div>
+        <div className="passwordBtn cursor right">저장</div>
       ) : (
         <div className="flexWrapper">
-          <div className="passwordBtn">수정</div>
-          <div className="passwordBtn right">삭제</div>
+          <div className="passwordBtn cursor">수정</div>
+          <div className="passwordBtn cursor right">삭제</div>
         </div>
       )}
     </div>
