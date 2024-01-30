@@ -10,6 +10,7 @@ function PaperList() {
     "s",
     "aasdf",
   ]);
+
   return (
     <div className="PaperList">
       <div id="paperListGrid">
@@ -17,8 +18,6 @@ function PaperList() {
           <Paper contents={element} author={"ss"} />
         ))}
       </div>
-
-      <div id="letterCreateBtn">+</div>
     </div>
   );
 }

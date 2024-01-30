@@ -17,9 +17,8 @@ function PaperModal({ usage }: Props) {
         value={title}
       />
       <div className="flexWrapper">
-        {/* <input type="text" id="authorTextarea" name="author" placeholder="작성자" /> */}
         <div />
-        <Password usage="create"/>
+        <Password usage={usage}/>
       </div>
     </div>
   );
