@@ -1,4 +1,4 @@
-import "./css/Paper.css";
+import "./css/Letter.css";
 import { useState } from "react";
 
 type Props = {
@@ -6,13 +6,13 @@ type Props = {
     author: String;
   };
 
-function Paper({contents, author}:Props) {
+function Letter({contents, author}:Props) {
   return (
-    <div className="Paper cursor">
+    <div className="Letter cursor">
         <div id="contents">{contents}</div>
         <div id="author">- {author}</div>
     </div>
   );
 }
 
-export default Paper;
+export default Letter;

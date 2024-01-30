@@ -4,7 +4,7 @@ import LetterModal from "./LetterModal";
 import Modal from "./Modal";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import PaperList from "./PaperList";
+import LetterList from "./LetterList";
 
 function Home() {
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
@@ -13,7 +13,7 @@ function Home() {
       <div id="homeGrid">
         <Sidebar />
         <Header />
-        <PaperList />
+        <LetterList />
       </div>
       <div className="cursor" id="letterCreateBtn" onClick={() => setIsCreateModalOpened(true)}>
         +

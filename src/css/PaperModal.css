@@ -1,6 +1,13 @@
-#contentsTextarea {
+#titleTextarea {
     width: 660px;
     height: 100px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+#contentsTextarea {
+    width: 660px;
+    height: 300px;
     margin-bottom: 20px;
     padding: 20px;
 }

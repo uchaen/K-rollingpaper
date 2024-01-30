@@ -1,9 +1,9 @@
-.PaperList {
+.LetterList {
     background-color: var(--bg-color);
     z-index: -100;
 }
 
-#paperListGrid{
+#letterListGrid{
     position: relative;
     display: flex;
     flex-wrap: wrap;
