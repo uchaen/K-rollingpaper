@@ -8,14 +8,28 @@ import LetterList from "./LetterList";
 
 function Home() {
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
+  const [fetchTitleList, setFetchTitleList] = useState<string[]>([
+    "test",
+    "test2",
+    "te3",
+  ]);
+  const [selectedTitle, setSelectedTitle] = useState<string>("");
+
   return (
     <div className="Home">
       <div id="homeGrid">
-        <Sidebar />
-        <Header />
+        <Sidebar
+          changeSelectedTitle={(value: string) => setSelectedTitle(value)}
+          fetchTitleList={fetchTitleList}
+        />
+        <Header title={selectedTitle} />
         <LetterList />
       </div>
-      <div className="cursor" id="letterCreateBtn" onClick={() => setIsCreateModalOpened(true)}>
+      <div
+        className="cursor"
+        id="letterCreateBtn"
+        onClick={() => setIsCreateModalOpened(true)}
+      >
         +
       </div>
       {isCreateModalOpened && (

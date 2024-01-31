@@ -3,12 +3,11 @@ import "./css/PaperModal.css";
 import { useState, useEffect } from "react";
 
 type Props = {
+  title: string;
   usage: string;
 };
-function PaperModal({ usage }: Props) {
-  const [title, setTitle] = useState();
-
-  return (
+function PaperModal({ title, usage }: Props) {
+ return (
     <div className="PaperModal">
       <textarea
         id="titleTextarea"

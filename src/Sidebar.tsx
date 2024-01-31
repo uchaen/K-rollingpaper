@@ -4,28 +4,37 @@ import { IoIosSearch } from "react-icons/io";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
 
-function Sidebar() {
-  const [fetchTitleList, setFetchTitleList] = useState<string[]>(["test", "test2", "te3"]);
+type Props = {
+  changeSelectedTitle: (value: string) => void;
+  fetchTitleList: Array<any>;
+};
+function Sidebar({ changeSelectedTitle, fetchTitleList }: Props) {
   const [titleList, setTitleList] = useState<string[]>([]);
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
-  const [selectedTitle, setSelectedTitle] = useState(0);
+  const [selectedTitle, setSelectedTitle] = useState<string>(fetchTitleList[0]);
   const [searchInput, setSearchInput] = useState<string>("");
 
   const getSearchData = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     setTitleList([...fetchTitleList]);
-  },[fetchTitleList])
+  }, [fetchTitleList]);
 
   useEffect(() => {
-    if(searchInput === "") {
+    if (searchInput === "") {
       setTitleList(fetchTitleList);
     } else {
-      setTitleList(fetchTitleList.filter((element) => element.includes(searchInput)));
+      setTitleList(
+        fetchTitleList.filter((element) => element.includes(searchInput))
+      );
     }
   }, [searchInput]);
+
+  useEffect(() => {
+    changeSelectedTitle(selectedTitle);
+  }, [selectedTitle]);
 
   return (
     <div className="Sidebar">
@@ -40,13 +49,13 @@ function Sidebar() {
         />
       </div>
       {titleList.map((element, index) =>
-        selectedTitle === index ? (
+        selectedTitle === element ? (
           <div className="titleListElement selectedTitle cursor">{element}</div>
         ) : (
           <div
             className="titleListElement cursor"
             onClick={() => {
-              setSelectedTitle(index);
+              setSelectedTitle(element);
             }}
           >
             {element}
@@ -61,7 +70,7 @@ function Sidebar() {
       </div>
       {isCreateModalOpened && (
         <Modal closeModal={() => setIsCreateModalOpened(false)}>
-          <PaperModal usage="create"/>
+          <PaperModal title="" usage="create" />
         </Modal>
       )}
     </div>
