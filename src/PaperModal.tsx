@@ -15,7 +15,6 @@ function PaperModal({ selectedPaper, usage }: Props) {
   const [inputtedPw, setInputtedPw] = useState("");
 
   function createPaper() {
-    console.log(inputtedPw, inputtedTitle);
     fetch(`http://localhost:8080/paper`, {
       method: "POST",
       headers: {
@@ -29,9 +28,28 @@ function PaperModal({ selectedPaper, usage }: Props) {
       window.location.reload();
     });
   }
-  function updatePaper() {}
+  function updatePaper() {
+    fetch(`http://localhost:8080/paper/update`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        paperId: selectedPaper.paperId,
+        paperTitle: inputtedTitle,
+        paperPw: inputtedPw,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res) {
+          window.location.reload();
+        } else {
+          window.alert("비밀번호가 일치하지 않습니다.");
+        }
+      });
+  }
   function deletePaper() {
-    console.log(inputtedPw);
     fetch(`http://localhost:8080/paper/delete`, {
       method: "POST",
       headers: {
