@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect} from "react";
 import "./css/Home.css";
 import Paper from "./InterfacePaper";
 import LetterModal from "./LetterModal";
@@ -18,15 +18,12 @@ function Home() {
     paperTitle: "",
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetch("http://localhost:8080/paper/list", {
       method: "GET",
     })
       .then((res) => res.json())
       .then((res) => {
-        const li = res.map((element: any) => element.paperTitle);
-        console.log(res);
-        // console.log(li);
         setFetchPaperList(res);
       });
   }, []);

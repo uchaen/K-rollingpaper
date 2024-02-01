@@ -12,11 +12,16 @@ function Header({ selectedPaper }: Props) {
   const [isUpdateModalOpened, setIsUpdateModalOpened] = useState(false);
   return (
     <div className="Header">
-      <div id="title">{selectedPaper.paperTitle}의 롤링페이퍼</div>
-      <HiPencilAlt
-        className="cursor"
-        onClick={() => setIsUpdateModalOpened(true)}
-      />
+      {selectedPaper.paperId !== 0 && (
+        <>
+          <div id="title">{selectedPaper.paperTitle}의 롤링페이퍼</div>
+          <HiPencilAlt
+            className="cursor"
+            onClick={() => setIsUpdateModalOpened(true)}
+          />
+        </>
+      )}
+
       {isUpdateModalOpened && (
         <Modal closeModal={() => setIsUpdateModalOpened(false)}>
           <PaperModal selectedPaper={selectedPaper} usage="update" />

@@ -15,10 +15,6 @@ function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
 
-  const getSearchData = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(e.target.value);
-  };
-
   useEffect(() => {
     setPaperList([...fetchPaperList]);
   }, [fetchPaperList]);
@@ -44,13 +40,16 @@ function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
         <IoIosSearch id="searchIcon" />
         <input
           id="searchText"
-          onChange={getSearchData}
+          onChange={(e) => {
+            setSearchInput(e.target.value);
+          }}
           type="text"
           placeholder="롤링페이퍼 검색"
         />
       </div>
       <div
         className="titleListElement cursor"
+        style={{color:"var(--point-color)"}}
         onClick={() => setIsCreateModalOpened(true)}
       >
         롤링페이퍼 생성 +

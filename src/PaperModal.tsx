@@ -11,6 +11,10 @@ function PaperModal({ selectedPaper, usage }: Props) {
   const [inputtedTitle, setInputtedTitle] = useState<string>("");
   const [inputtedPw, setInputtedPw] = useState("");
 
+  useEffect(() => {
+    setInputtedTitle(selectedPaper.paperTitle);
+  }, []);
+
   function createPaper() {
     fetch(`http://localhost:8080/paper`, {
       method: "POST",
@@ -72,7 +76,7 @@ function PaperModal({ selectedPaper, usage }: Props) {
         id="titleTextarea"
         name="title"
         placeholder="롤링페이퍼의 타이틀을 입력해보세요.&#13;&#10;ex) 홍길동"
-        // value={selectedPaper.paperTitle}
+        value={usage === "update" ? inputtedTitle : ""}
         onChange={(e) => {
           setInputtedTitle(e.target.value);
         }}
