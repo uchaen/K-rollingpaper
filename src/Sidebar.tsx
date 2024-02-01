@@ -4,14 +4,18 @@ import { IoIosSearch } from "react-icons/io";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
 
+interface Paper {
+  paperTitle: string,
+  paperId: number
+}
 type Props = {
-  changeSelectedTitle: (value: string) => void;
-  fetchTitleList: Array<any>;
+  changeSelectedPaper: (value: any) => void;
+  fetchPaperList: Array<Paper>;
 };
-function Sidebar({ changeSelectedTitle, fetchTitleList }: Props) {
-  const [titleList, setTitleList] = useState<string[]>([]);
+function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
+  const [paperList, setPaperList] = useState<Array<Paper>>();
+  const [selectedPaper, setSelectedPaper] = useState(fetchPaperList[0]);
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
-  const [selectedTitle, setSelectedTitle] = useState<string>(fetchTitleList[0]);
   const [searchInput, setSearchInput] = useState<string>("");
 
   const getSearchData = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,22 +23,22 @@ function Sidebar({ changeSelectedTitle, fetchTitleList }: Props) {
   };
 
   useEffect(() => {
-    setTitleList([...fetchTitleList]);
-  }, [fetchTitleList]);
+    setPaperList([...fetchPaperList]);
+  }, [fetchPaperList]);
 
   useEffect(() => {
     if (searchInput === "") {
-      setTitleList(fetchTitleList);
+      setPaperList(fetchPaperList);
     } else {
-      setTitleList(
-        fetchTitleList.filter((element) => element.includes(searchInput))
+      setPaperList(
+        fetchPaperList.filter((element) => element.paperTitle.includes(searchInput))
       );
     }
   }, [searchInput]);
 
   useEffect(() => {
-    changeSelectedTitle(selectedTitle);
-  }, [selectedTitle]);
+    changeSelectedPaper(selectedPaper);
+  }, [selectedPaper]);
 
   return (
     <div className="Sidebar">
@@ -48,26 +52,26 @@ function Sidebar({ changeSelectedTitle, fetchTitleList }: Props) {
           placeholder="롤링페이퍼 검색"
         />
       </div>
-      {titleList.map((element, index) =>
-        selectedTitle === element ? (
-          <div className="titleListElement selectedTitle cursor">{element}</div>
-        ) : (
-          <div
-            className="titleListElement cursor"
-            onClick={() => {
-              setSelectedTitle(element);
-            }}
-          >
-            {element}
-          </div>
-        )
-      )}
       <div
         className="titleListElement cursor"
         onClick={() => setIsCreateModalOpened(true)}
       >
         롤링페이퍼 생성 +
       </div>
+      {paperList?.map((element) =>
+        selectedPaper === element ? (
+          <div className="titleListElement selectedTitle cursor">{element.paperTitle}</div>
+        ) : (
+          <div
+            className="titleListElement cursor"
+            onClick={() => {
+              setSelectedPaper(element);
+            }}
+          >
+            {element.paperTitle}
+          </div>
+        )
+      )}
       {isCreateModalOpened && (
         <Modal closeModal={() => setIsCreateModalOpened(false)}>
           <PaperModal title="" usage="create" />

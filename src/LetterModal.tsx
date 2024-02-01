@@ -8,6 +8,23 @@ type Props = {
 function LetterModal({ usage }: Props) {
   const [contents, setContents] = useState();
   const [author, setAuthor] = useState();
+  const [inputtedPw, setInputtedPw] = useState("");
+  function createLetter() {
+    // fetch(`http://localhost:8080/paper/list`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     paperTitle: inputtedTitle,
+    //     paperPw: inputtedPw,
+    //   }),
+    // }).then(() => {
+    //   // sessionStorage.clear();
+    //   // window.location.replace("/outfitList");
+    // });
+  }
+
 
   return (
     <div className="LetterModal">
@@ -19,7 +36,7 @@ function LetterModal({ usage }: Props) {
       />
       <div className="flexWrapper">
         <input type="text" id="authorTextarea" name="author" placeholder="작성자" value={author}/>
-        <Password usage={usage}/>
+        <Password usage={usage} changeInputtedPw={(value: any) => setInputtedPw(value)} startFetch={()=>createLetter()} />
       </div>
     </div>
   );
