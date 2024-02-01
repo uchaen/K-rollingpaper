@@ -1,11 +1,8 @@
 import Password from "./Password";
 import "./css/PaperModal.css";
 import { useState, useEffect, SetStateAction } from "react";
+import Paper from "./InterfacePaper";
 
-interface Paper {
-  paperTitle: string;
-  paperId: number;
-}
 type Props = {
   selectedPaper: Paper;
   usage: string;

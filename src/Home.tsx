@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import "./css/Home.css";
+import Paper from "./InterfacePaper";
 import LetterModal from "./LetterModal";
 import Modal from "./Modal";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import LetterList from "./LetterList";
 
-interface Paper {
-  paperTitle: string;
-  paperId: number;
-}
+
 function Home() {
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
   const [fetchPaperList, setFetchPaperList] = useState<Array<Paper>>([

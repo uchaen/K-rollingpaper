@@ -3,11 +3,8 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
+import Paper from "./InterfacePaper";
 
-interface Paper {
-  paperTitle: string,
-  paperId: number
-}
 type Props = {
   changeSelectedPaper: (value: any) => void;
   fetchPaperList: Array<Paper>;

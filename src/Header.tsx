@@ -1,13 +1,10 @@
 import "./css/Header.css";
+import Paper from "./InterfacePaper";
 import { useState } from "react";
 import { HiPencilAlt } from "react-icons/hi";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
 
-interface Paper {
-  paperTitle: string;
-  paperId: number;
-}
 type Props = {
   selectedPaper: Paper;
 };
