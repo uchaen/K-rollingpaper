@@ -40,7 +40,7 @@ function Home() {
           changeSelectedPaper={(value: any) => setSelectedPaper(value)}
           fetchPaperList={fetchPaperList}
         />
-        <Header title={selectedPaper.paperTitle} />
+        <Header selectedPaper={selectedPaper} />
         <LetterList />
       </div>
       <div

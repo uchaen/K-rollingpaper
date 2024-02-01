@@ -4,21 +4,25 @@ import { HiPencilAlt } from "react-icons/hi";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
 
+interface Paper {
+  paperTitle: string;
+  paperId: number;
+}
 type Props = {
-  title: string;
+  selectedPaper: Paper;
 };
-function Header({ title }: Props) {
+function Header({ selectedPaper }: Props) {
   const [isUpdateModalOpened, setIsUpdateModalOpened] = useState(false);
   return (
     <div className="Header">
-      <div id="title">{title}의 롤링페이퍼</div>
+      <div id="title">{selectedPaper.paperTitle}의 롤링페이퍼</div>
       <HiPencilAlt
         className="cursor"
         onClick={() => setIsUpdateModalOpened(true)}
       />
       {isUpdateModalOpened && (
         <Modal closeModal={() => setIsUpdateModalOpened(false)}>
-          <PaperModal title={title} usage="update" />
+          <PaperModal selectedPaper={selectedPaper} usage="update" />
         </Modal>
       )}
     </div>

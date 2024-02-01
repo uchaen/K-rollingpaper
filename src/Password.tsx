@@ -5,12 +5,12 @@ import { useState, useEffect, SetStateAction } from "react";
 type Props = {
   usage: string;
   changeInputtedPw: (value: any) => void;
-  startFetch: ()=>void;
+  startCreate: ()=>void;
+  startUpdate: ()=>void;
+  startDelete: ()=>void;
 };
 
-function Password({ usage, changeInputtedPw, startFetch }: Props) {
-  
-  // const [inputtedPw, setInputtedPw] = useState("");
+function Password({ usage, changeInputtedPw, startCreate, startUpdate, startDelete}: Props) {
   const pwChange = (e: { target: { value: SetStateAction<string> } }) => {
     changeInputtedPw(e.target.value);
   };
@@ -24,11 +24,11 @@ function Password({ usage, changeInputtedPw, startFetch }: Props) {
         onChange={pwChange}
       />
       {usage === "create" ? (
-        <div className="passwordBtn cursor right" onClick={startFetch}>저장</div>
+        <div className="passwordBtn cursor right" onClick={startCreate}>저장</div>
       ) : (
         <div className="flexWrapper">
-          <div className="passwordBtn cursor">수정</div>
-          <div className="passwordBtn cursor right">삭제</div>
+          <div className="passwordBtn cursor" onClick={startUpdate}>수정</div>
+          <div className="passwordBtn cursor right" onClick={startDelete}>삭제</div>
         </div>
       )}
     </div>

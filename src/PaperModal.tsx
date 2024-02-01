@@ -2,11 +2,15 @@ import Password from "./Password";
 import "./css/PaperModal.css";
 import { useState, useEffect, SetStateAction } from "react";
 
+interface Paper {
+  paperTitle: string;
+  paperId: number;
+}
 type Props = {
-  title: string;
+  selectedPaper: Paper;
   usage: string;
 };
-function PaperModal({ title, usage }: Props) {
+function PaperModal({ selectedPaper, usage }: Props) {
   const [inputtedTitle, setInputtedTitle] = useState<string>("");
   const [inputtedPw, setInputtedPw] = useState("");
 
@@ -22,9 +26,30 @@ function PaperModal({ title, usage }: Props) {
         paperPw: inputtedPw,
       }),
     }).then(() => {
-      // sessionStorage.clear();
       window.location.reload();
     });
+  }
+  function updatePaper() {}
+  function deletePaper() {
+    console.log(inputtedPw);
+    fetch(`http://localhost:8080/paper/delete`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        paperId: selectedPaper.paperId,
+        paperPw: inputtedPw,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res) {
+          window.location.reload();
+        } else {
+          window.alert("비밀번호가 일치하지 않습니다.");
+        }
+      });
   }
   return (
     <div className="PaperModal">
@@ -32,7 +57,7 @@ function PaperModal({ title, usage }: Props) {
         id="titleTextarea"
         name="title"
         placeholder="롤링페이퍼의 타이틀을 입력해보세요.&#13;&#10;ex) 홍길동"
-        // value={title}
+        // value={selectedPaper.paperTitle}
         onChange={(e) => {
           setInputtedTitle(e.target.value);
         }}
@@ -42,7 +67,9 @@ function PaperModal({ title, usage }: Props) {
         <Password
           usage={usage}
           changeInputtedPw={(value: any) => setInputtedPw(value)}
-          startFetch={() => createPaper()}
+          startCreate={createPaper}
+          startUpdate={updatePaper}
+          startDelete={deletePaper}
         />
       </div>
     </div>
