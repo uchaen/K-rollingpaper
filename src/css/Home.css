@@ -1,5 +1,5 @@
 .Home {
-    height: 100vh;
+    height: min-100vh;
 }
 
 #homeGrid {

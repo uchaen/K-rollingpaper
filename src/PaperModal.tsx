@@ -25,7 +25,7 @@ function PaperModal({ selectedPaper, usage }: Props) {
       <textarea
         id="titleTextarea"
         name="title"
-        placeholder="롤링페이퍼의 타이틀을 입력해보세요.&#13;&#10;ex) 홍길동"
+        placeholder="롤링페이퍼의 타이틀을 입력해보세요. (~50자)&#13;&#10;ex) 홍길동"
         value={inputtedTitle}
         maxLength={50}
         onChange={(e) => {

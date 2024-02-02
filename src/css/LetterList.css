@@ -2,7 +2,7 @@
     background-color: var(--bg-color);
     border-top: 2px solid var(--border-color);
     border-left: 2px solid var(--border-color);
-    height: 88vh;
+    min-height: 88vh;
 }
 
 #letterListGrid{
