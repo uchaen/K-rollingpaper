@@ -1,6 +1,8 @@
 .LetterList {
     background-color: var(--bg-color);
-    z-index: -100;
+    border-top: 2px solid var(--border-color);
+    border-left: 2px solid var(--border-color);
+    height: 88vh;
 }
 
 #letterListGrid{

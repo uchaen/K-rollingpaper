@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect} from "react";
+import { useEffect, useState } from "react";
 import "./css/Home.css";
 import Paper from "./InterfacePaper";
 import LetterModal from "./LetterModal";
@@ -6,7 +6,6 @@ import Modal from "./Modal";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import LetterList from "./LetterList";
-
 
 function Home() {
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
@@ -18,7 +17,7 @@ function Home() {
     paperTitle: "",
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     fetch("http://localhost:8080/paper/list", {
       method: "GET",
     })
@@ -47,7 +46,10 @@ function Home() {
       </div>
       {isCreateModalOpened && (
         <Modal closeModal={() => setIsCreateModalOpened(false)}>
-          <LetterModal usage="create" />
+          <LetterModal
+            usage="create"            
+            selectedPaper={selectedPaper}
+          />
         </Modal>
       )}
     </div>

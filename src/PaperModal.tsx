@@ -4,7 +4,7 @@ import { useState, useEffect, SetStateAction } from "react";
 import Paper from "./InterfacePaper";
 
 type Props = {
-  selectedPaper: Paper;
+  selectedPaper?: Paper;
   usage: string;
 };
 function PaperModal({ selectedPaper, usage }: Props) {
@@ -12,7 +12,9 @@ function PaperModal({ selectedPaper, usage }: Props) {
   const [inputtedPw, setInputtedPw] = useState("");
 
   useEffect(() => {
-    setInputtedTitle(selectedPaper.paperTitle);
+    if (usage === "update") {
+      setInputtedTitle(selectedPaper!.paperTitle);
+    }
   }, []);
 
   function createPaper() {
@@ -36,7 +38,7 @@ function PaperModal({ selectedPaper, usage }: Props) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        paperId: selectedPaper.paperId,
+        paperId: selectedPaper!.paperId,
         paperTitle: inputtedTitle,
         paperPw: inputtedPw,
       }),
@@ -57,7 +59,7 @@ function PaperModal({ selectedPaper, usage }: Props) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        paperId: selectedPaper.paperId,
+        paperId: selectedPaper!.paperId,
         paperPw: inputtedPw,
       }),
     })
@@ -76,7 +78,8 @@ function PaperModal({ selectedPaper, usage }: Props) {
         id="titleTextarea"
         name="title"
         placeholder="롤링페이퍼의 타이틀을 입력해보세요.&#13;&#10;ex) 홍길동"
-        value={usage === "update" ? inputtedTitle : ""}
+        value={inputtedTitle}
+        maxLength={50}
         onChange={(e) => {
           setInputtedTitle(e.target.value);
         }}

@@ -1,5 +1,5 @@
 .Home {
-    height: 100%;
+    height: 100vh;
 }
 
 #homeGrid {
@@ -13,7 +13,7 @@
     position: fixed;
     right: 100px;
     bottom: 100px;
-    z-index: 100;
+    z-index: 50;
 
     text-align: center;
     line-height: 93px;

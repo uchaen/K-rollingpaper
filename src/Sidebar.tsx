@@ -70,7 +70,7 @@ function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
       )}
       {isCreateModalOpened && (
         <Modal closeModal={() => setIsCreateModalOpened(false)}>
-          <PaperModal selectedPaper={paperList![0]} usage="create" />
+          <PaperModal usage="create" />
         </Modal>
       )}
     </div>

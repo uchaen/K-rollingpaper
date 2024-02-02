@@ -27,12 +27,7 @@ function LetterList({ selectedPaper }: Props) {
     <div className="LetterList">
       <div id="letterListGrid">
         {letterList &&
-          letterList.map((element) => (
-            <Letter
-              contents={element.letterContents}
-              author={element.letterAuthor}
-            />
-          ))}
+          letterList.map((element) => <Letter letterObj={element} />)}
       </div>
     </div>
   );
