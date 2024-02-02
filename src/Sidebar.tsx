@@ -24,7 +24,9 @@ function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
       setPaperList(fetchPaperList);
     } else {
       setPaperList(
-        fetchPaperList.filter((element) => element.paperTitle.includes(searchInput))
+        fetchPaperList.filter((element) =>
+          element.paperTitle.includes(searchInput)
+        )
       );
     }
   }, [searchInput]);
@@ -49,14 +51,16 @@ function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
       </div>
       <div
         className="titleListElement cursor"
-        style={{color:"var(--point-color)"}}
+        style={{ color: "var(--point-color)" }}
         onClick={() => setIsCreateModalOpened(true)}
       >
         롤링페이퍼 생성 +
       </div>
       {paperList?.map((element) =>
         selectedPaper === element ? (
-          <div className="titleListElement selectedTitle cursor">{element.paperTitle}</div>
+          <div className="titleListElement selectedTitle cursor">
+            {element.paperTitle}
+          </div>
         ) : (
           <div
             className="titleListElement cursor"

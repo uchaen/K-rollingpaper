@@ -2,8 +2,12 @@ import { useState } from "react";
 import "./css/Home.css";
 import LetterModal from "./LetterModal";
 import Modal from "./Modal";
+import Paper from "./Interface/InterfacePaper";
 
-function LetterCreateBtn() {
+type Props = {
+  selectedPaper: Paper;
+};
+function LetterCreateBtn({selectedPaper}:Props) {
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
 
   return (
@@ -17,7 +21,7 @@ function LetterCreateBtn() {
       </div>
       {isCreateModalOpened && (
         <Modal closeModal={() => setIsCreateModalOpened(false)}>
-          <LetterModal usage="create" />
+          <LetterModal usage="create" selectedPaper={selectedPaper}/>
         </Modal>
       )}
     </div>
