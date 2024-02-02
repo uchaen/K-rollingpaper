@@ -36,7 +36,7 @@ function Home() {
           fetchPaperList={fetchPaperList}
         />
         <Header selectedPaper={selectedPaper} />
-        <LetterList />
+        <LetterList selectedPaper={selectedPaper} />
       </div>
       <div
         className="cursor"

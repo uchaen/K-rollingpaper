@@ -1,3 +1,7 @@
+.Home {
+    height: 100%;
+}
+
 #homeGrid {
     display: grid;
     grid-template-rows: 110px 100%;
