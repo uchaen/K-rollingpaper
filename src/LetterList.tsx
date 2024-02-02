@@ -1,8 +1,8 @@
 import Letter from "./Letter";
-import Paper from "./InterfacePaper";
+import Paper from "./Interface/InterfacePaper";
 import "./css/LetterList.css";
 import { useEffect, useState } from "react";
-import InterfaceLetter from "./InterfaceLetter";
+import InterfaceLetter from "./Interface/InterfaceLetter";
 
 type Props = {
   selectedPaper: Paper;

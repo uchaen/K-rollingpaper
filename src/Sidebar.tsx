@@ -1,9 +1,9 @@
 import "./css/Sidebar.css";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
-import Paper from "./InterfacePaper";
+import Paper from "./Interface/InterfacePaper";
 
 type Props = {
   changeSelectedPaper: (value: any) => void;

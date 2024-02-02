@@ -1,7 +1,7 @@
 import Password from "./Password";
 import "./css/PaperModal.css";
-import { useState, useEffect, SetStateAction } from "react";
-import Paper from "./InterfacePaper";
+import { useState, useEffect } from "react";
+import Paper from "./Interface/InterfacePaper";
 
 type Props = {
   selectedPaper?: Paper;

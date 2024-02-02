@@ -1,7 +1,6 @@
-import InterfaceLetter from "./InterfaceLetter";
-import Paper from "./InterfacePaper";
+import InterfaceLetter from "./Interface/InterfaceLetter";
+import Paper from "./Interface/InterfacePaper";
 import Password from "./Password";
-// import "./css/LetterModal.css";
 import { useState, useEffect } from "react";
 
 type Props = {
@@ -88,7 +87,7 @@ function LetterModal({ usage, letterObj, selectedPaper }: Props) {
         name="contents"
         placeholder="편지를 작성해보세요."
         value={inputtedContents}
-        maxLength={350}
+        maxLength={600}
         onChange={(e) => {
           setInputtedContents(e.target.value);
         }}

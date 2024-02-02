@@ -45,10 +45,13 @@
     margin-top: 20px;
     padding: 15px 40px;
     font-size: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .selectedTitle {
     border-left: 8px solid var(--point-color);
     color: var(--point-color);
     font-weight: bold;
+    text-overflow: ellipsis;
 }

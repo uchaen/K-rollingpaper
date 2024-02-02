@@ -1,5 +1,5 @@
 import "./css/Header.css";
-import Paper from "./InterfacePaper";
+import Paper from "./Interface/InterfacePaper";
 import { useState } from "react";
 import { HiPencilAlt } from "react-icons/hi";
 import Modal from "./Modal";

@@ -1,6 +1,5 @@
-import React from "react";
 import "./css/Password.css";
-import { useState, useEffect, SetStateAction } from "react";
+import { SetStateAction } from "react";
 
 type Props = {
   usage: string;
@@ -11,9 +10,6 @@ type Props = {
 };
 
 function Password({ usage, changeInputtedPw, startCreate, startUpdate, startDelete}: Props) {
-  const pwChange = (e: { target: { value: SetStateAction<string> } }) => {
-    changeInputtedPw(e.target.value);
-  };
   return (
     <div className="Password">
       <input
@@ -21,7 +17,9 @@ function Password({ usage, changeInputtedPw, startCreate, startUpdate, startDele
         type="password"
         placeholder="비밀번호(~10자)"
         maxLength={10}
-        onChange={pwChange}
+        onChange={(e) => {
+          changeInputtedPw(e.target.value);
+        }}
       />
       {usage === "create" ? (
         <div className="passwordBtn cursor right" onClick={startCreate}>저장</div>

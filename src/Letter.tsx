@@ -1,4 +1,4 @@
-import InterfaceLetter from "./InterfaceLetter";
+import InterfaceLetter from "./Interface/InterfaceLetter";
 import LetterModal from "./LetterModal";
 import Modal from "./Modal";
 import "./css/Letter.css";
