@@ -13,7 +13,9 @@ type Props = {
   selectedPaper?: Paper;
 };
 function LetterModal({ usage, letterObj, selectedPaper }: Props) {
-  const [inputtedLetterColor, setInputtedLetterColor] = useState<string>(letterObj!.letterColor);
+  const [inputtedLetterColor, setInputtedLetterColor] = useState<string | any>(
+    letterObj?.letterColor
+  );
   const [inputtedContents, setInputtedContents] = useState<string>("");
   const [inputtedAuthor, setInputtedAuthor] = useState<string>("");
   const [inputtedPw, setInputtedPw] = useState<string>("");

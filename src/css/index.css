@@ -17,6 +17,8 @@
   --yellow-color: rgb(255, 253, 202);
   --green-color: rgb(209, 255, 212);
   --blue-color: rgb(203, 233, 255);
+  --purple-color: rgb(231, 203, 255);
+  --black-color: black;
 }
 
 body {
