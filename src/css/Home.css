@@ -28,3 +28,9 @@
     font-size: 50px;
     font-weight: bold;
 }
+
+#letterCreateBtn:hover {
+    background-color: #00c0b9;
+    transform: scale(1.05);
+    transition-duration: 0.3s;
+}
