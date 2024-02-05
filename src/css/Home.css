@@ -30,7 +30,7 @@
 }
 
 #letterCreateBtn:hover {
-    background-color: #00c0b9;
-    transform: scale(1.05);
-    transition-duration: 0.3s;
+    background-color: #ed1c24;
+    /* transform: scale(1.05); */
+    /* transition-duration: 0.3s; */
 }

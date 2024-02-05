@@ -68,8 +68,8 @@ input::placeholder {
   height: 0;
 }
 ::-webkit-scrollbar {
-  width: 14px;
-  height: 5px;
+  width: 11px;
+  height: 11px;
 }
 ::-webkit-scrollbar-track {
   background-color: transparent;

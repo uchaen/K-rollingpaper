@@ -20,7 +20,7 @@ function LetterColorSelector({ changeLetterColor, inputtedLetterColor }: Props) 
 
   return (
     <div className="LetterColorSelector">
-      배경색 : 
+      <div id="letterColorComment">배경색 : </div> 
       {letterColorList.map((element) =>
         selectedColor === element ? (
           <div
