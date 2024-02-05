@@ -2,10 +2,9 @@ import React from "react";
 import "./css/Modal.css";
 type Props = {
   children: React.ReactNode;
-  closeModal:()=>void;
-}
-function Modal({children,closeModal}:Props) {
-
+  closeModal: () => void;
+};
+function Modal({ children, closeModal }: Props) {
   function closeM() {
     closeModal();
   }

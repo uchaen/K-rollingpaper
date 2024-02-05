@@ -3,7 +3,8 @@ interface InterfaceLetter {
     letterAuthor: string,
     letterContents: string,
     paperId : number,
-    letterPw?: string
+    letterPw?: string,
+    letterColor: string
 }
 
 export default InterfaceLetter;

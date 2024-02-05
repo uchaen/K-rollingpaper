@@ -1,0 +1,19 @@
+.LetterColorSelector {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  /* color: var(--border-color); */
+}
+
+.colorBtn {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border-radius: 15px;
+}
+
+.checked {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -5,6 +5,7 @@ import createLetter from "./function/createLetter";
 import updateLetter from "./function/updateLetter";
 import deleteLetter from "./function/deleteLetter";
 import { useState, useEffect } from "react";
+import LetterColorSelector from "./LetterColorSelector";
 
 type Props = {
   usage: string;
@@ -12,6 +13,7 @@ type Props = {
   selectedPaper?: Paper;
 };
 function LetterModal({ usage, letterObj, selectedPaper }: Props) {
+  const [inputtedLetterColor, setInputtedLetterColor] = useState<string>(letterObj!.letterColor);
   const [inputtedContents, setInputtedContents] = useState<string>("");
   const [inputtedAuthor, setInputtedAuthor] = useState<string>("");
   const [inputtedPw, setInputtedPw] = useState<string>("");
@@ -25,6 +27,13 @@ function LetterModal({ usage, letterObj, selectedPaper }: Props) {
 
   return (
     <div className="LetterModal">
+      <LetterColorSelector
+        changeLetterColor={(value: string) => {
+          setInputtedLetterColor(value);
+        }}
+        inputtedLetterColor = {inputtedLetterColor}
+      />
+
       <textarea
         id="contentsTextarea"
         name="contents"
@@ -55,7 +64,8 @@ function LetterModal({ usage, letterObj, selectedPaper }: Props) {
               inputtedContents,
               inputtedAuthor,
               inputtedPw,
-              selectedPaper!.paperId
+              selectedPaper!.paperId,
+              inputtedLetterColor
             )
           }
           startUpdate={() =>
@@ -63,7 +73,8 @@ function LetterModal({ usage, letterObj, selectedPaper }: Props) {
               letterObj!.letterId,
               inputtedContents,
               inputtedAuthor,
-              inputtedPw
+              inputtedPw,
+              inputtedLetterColor
             )
           }
           startDelete={() => deleteLetter(letterObj!.letterId, inputtedPw)}

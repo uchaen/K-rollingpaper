@@ -2,8 +2,10 @@ function updateLetter(
   letterId: number,
   letterContents: string,
   letterAuthor: string,
-  letterPw: string
+  letterPw: string,
+  inputtedLetterColor: string
 ) {
+  // console.log(typeof(inputtedLetterColor));
   fetch(`http://localhost:8080/letter/update`, {
     method: "POST",
     headers: {
@@ -14,6 +16,7 @@ function updateLetter(
       letterContents: letterContents,
       letterAuthor: letterAuthor,
       letterPw: letterPw,
+      letterColor: inputtedLetterColor
     }),
   })
     .then((res) => res.json())

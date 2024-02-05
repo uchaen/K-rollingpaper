@@ -11,6 +11,12 @@
   --border-color: #c3d5e1;
   --font-color: #9cbcd2;
   --point-color: #28cdc8;
+  --white-color: white;
+  --red-color: rgb(255, 207, 207);
+  --orange-color: rgb(255, 227, 201);
+  --yellow-color: rgb(255, 253, 202);
+  --green-color: rgb(209, 255, 212);
+  --blue-color: rgb(203, 233, 255);
 }
 
 body {
@@ -68,5 +74,5 @@ input::placeholder {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 7px;
-  background-color: var(--font-color);
+  background-color: var(--border-color);
 }
