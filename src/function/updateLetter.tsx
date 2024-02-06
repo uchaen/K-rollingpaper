@@ -5,7 +5,9 @@ function updateLetter(
   letterPw: string,
   inputtedLetterColor: string
 ) {
-  // console.log(typeof(inputtedLetterColor));
+  if (!inputtedLetterColor) {
+    inputtedLetterColor = "white";
+  }
   fetch(`http://localhost:8080/letter/update`, {
     method: "POST",
     headers: {

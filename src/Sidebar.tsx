@@ -11,13 +11,31 @@ type Props = {
 };
 function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
   const [paperList, setPaperList] = useState<Array<Paper>>();
-  const [selectedPaper, setSelectedPaper] = useState(fetchPaperList[0]);
+  const [selectedPaper, setSelectedPaper] = useState<Paper>(fetchPaperList[0]);
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
 
   useEffect(() => {
     setPaperList([...fetchPaperList]);
+    if (fetchPaperList.length > 1) {
+      const idx = Number(sessionStorage.getItem("selectedPaper"));
+      setSelectedPaper(fetchPaperList[idx]);
+    }
   }, [fetchPaperList]);
+
+  useEffect(() => {
+    if (
+      selectedPaper && 
+      selectedPaper !== fetchPaperList[0] &&
+      fetchPaperList.indexOf(selectedPaper) !== -1
+    ) {
+      sessionStorage.setItem(
+        "selectedPaper",
+        String(fetchPaperList.indexOf(selectedPaper))
+      );
+    }
+    changeSelectedPaper(selectedPaper);
+  }, [selectedPaper]);
 
   useEffect(() => {
     if (searchInput === "") {
@@ -30,10 +48,6 @@ function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
       );
     }
   }, [searchInput]);
-
-  useEffect(() => {
-    changeSelectedPaper(selectedPaper);
-  }, [selectedPaper]);
 
   return (
     <div className="Sidebar">

@@ -5,6 +5,9 @@ function createLetter(
   paperId: number,
   inputtedLetterColor: string
 ) {
+  if (!inputtedLetterColor) {
+    inputtedLetterColor = "white";
+  }
   fetch(`http://localhost:8080/letter`, {
     method: "POST",
     headers: {
@@ -15,7 +18,7 @@ function createLetter(
       letterAuthor: letterAuthor,
       letterPw: letterPw,
       paperId: paperId,
-      letterColor: inputtedLetterColor
+      letterColor: inputtedLetterColor,
     }),
   }).then(() => {
     window.location.reload();

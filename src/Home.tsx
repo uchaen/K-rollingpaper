@@ -35,7 +35,9 @@ function Home() {
         <Header selectedPaper={selectedPaper} />
         <LetterList selectedPaper={selectedPaper} />
       </div>
-      {selectedPaper.paperId !== 0 && <LetterCreateBtn selectedPaper={selectedPaper}/>}      
+      {selectedPaper.paperId !== 0 && (
+        <LetterCreateBtn selectedPaper={selectedPaper} />
+      )}
     </div>
   );
 }
