@@ -6,6 +6,7 @@ import updateLetter from "./function/updateLetter";
 import deleteLetter from "./function/deleteLetter";
 import { useState, useEffect } from "react";
 import LetterColorSelector from "./LetterColorSelector";
+import "./css/ChatgptModal.css"
 
 type Props = {
   usage: string;
@@ -13,6 +14,7 @@ type Props = {
   selectedPaper?: Paper;
 };
 function LetterModal({ usage, letterObj, selectedPaper }: Props) {
+  const [isChatgptModalOpened, setIsChatgptModalOpened] = useState(false);
   const [inputtedLetterColor, setInputtedLetterColor] = useState<string | any>(
     letterObj?.letterColor
   );
@@ -29,13 +31,12 @@ function LetterModal({ usage, letterObj, selectedPaper }: Props) {
 
   return (
     <div className="LetterModal">
-      <LetterColorSelector
-        changeLetterColor={(value: string) => {
-          setInputtedLetterColor(value);
-        }}
-        inputtedLetterColor = {inputtedLetterColor}
-      />
-
+        <LetterColorSelector
+          changeLetterColor={(value: string) => {
+            setInputtedLetterColor(value);
+          }}
+          inputtedLetterColor={inputtedLetterColor}
+        />
       <textarea
         id="contentsTextarea"
         name="contents"
