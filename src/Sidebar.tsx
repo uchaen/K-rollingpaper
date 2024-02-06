@@ -11,7 +11,10 @@ type Props = {
 };
 function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
   const [paperList, setPaperList] = useState<Array<Paper>>();
-  const [selectedPaper, setSelectedPaper] = useState<Paper>(fetchPaperList[0]);
+  const [selectedPaper, setSelectedPaper] = useState<Paper>({
+    paperId: 0,
+    paperTitle: "",
+  });
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
 
@@ -24,11 +27,7 @@ function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
   }, [fetchPaperList]);
 
   useEffect(() => {
-    if (
-      selectedPaper && 
-      selectedPaper !== fetchPaperList[0] &&
-      fetchPaperList.indexOf(selectedPaper) !== -1
-    ) {
+    if (selectedPaper && fetchPaperList.indexOf(selectedPaper) !== -1) {
       sessionStorage.setItem(
         "selectedPaper",
         String(fetchPaperList.indexOf(selectedPaper))
