@@ -4,6 +4,7 @@ import LetterModal from "./LetterModal";
 import Modal from "./Modal";
 import Paper from "./Interface/InterfacePaper";
 import { GoPencil } from "react-icons/go";
+import ChatgptModal from "./ChatgptModal";
 
 type Props = {
   selectedPaper: Paper;
@@ -48,13 +49,7 @@ function LetterCreateBtn({ selectedPaper }: Props) {
       )}
       {isChatgptModalOpened && (
         <Modal closeModal={() => setIsChatgptModalOpened(false)}>
-          <div
-            className="ChatgptModal cursor"
-            onClick={() => setIsChatgptModalOpened(true)}
-          >
-            <img id="gptLogo" src="gptLogo.png" />
-            gpt에게 부탁하기
-          </div>
+          <ChatgptModal selectedPaper={selectedPaper}/>
         </Modal>
       )}
     </div>
