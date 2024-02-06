@@ -13,6 +13,7 @@ type Props = {
 };
 function ChatgptModal({ selectedPaper }: Props) {
   const [inputtedNickname, setInputtedNickname] = useState<string>("");
+  const [inputtedTopic, setInputtedTopic] = useState<string>("");
   const [inputtedRelation, setInputtedRelation] = useState<string>("");
   const [inputtedInclude, setInputtedInclude] = useState<string>("");
   const [inputtedPolite, setInputtedPolite] = useState<boolean>(true);
@@ -34,6 +35,14 @@ function ChatgptModal({ selectedPaper }: Props) {
         placeholder="나와의 관계"
         onChange={(e) => {
           setInputtedRelation(e.target.value);
+        }}
+      />
+      <input
+        type="text"
+        className="marginTop"
+        placeholder="편지 주제"
+        onChange={(e) => {
+          setInputtedTopic(e.target.value);
         }}
       />
       <input
@@ -74,6 +83,7 @@ function ChatgptModal({ selectedPaper }: Props) {
           sendToGpt(
             inputtedNickname,
             inputtedRelation,
+            inputtedTopic,
             inputtedInclude,
             inputtedPolite
           )

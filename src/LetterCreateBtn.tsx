@@ -18,8 +18,10 @@ function LetterCreateBtn({ selectedPaper }: Props) {
     <div className="LetterCreateBtn">
       <div onMouseLeave={() => setIsFabOpened(false)}>
         <div
-          className="cursor"
-          id="letterCreateBtn"
+          className={
+            "cursor letterCreateBtn" +
+            (isFabOpened ? " hoveringLetterCreateBtn" : "")
+          }
           onClick={() => setIsFabOpened(true)}
           onMouseEnter={() => setIsFabOpened(true)}
         >
@@ -49,7 +51,7 @@ function LetterCreateBtn({ selectedPaper }: Props) {
       )}
       {isChatgptModalOpened && (
         <Modal closeModal={() => setIsChatgptModalOpened(false)}>
-          <ChatgptModal selectedPaper={selectedPaper}/>
+          <ChatgptModal selectedPaper={selectedPaper} />
         </Modal>
       )}
     </div>

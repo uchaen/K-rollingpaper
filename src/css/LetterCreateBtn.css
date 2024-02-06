@@ -1,4 +1,4 @@
-#letterCreateBtn {
+.letterCreateBtn {
   position: fixed;
   right: 100px;
   bottom: 100px;
@@ -16,12 +16,12 @@
   color: white;
   font-size: 50px;
   font-weight: bold;
+  
+  transition-duration: 0.2s;
 }
 
-#letterCreateBtn:hover {
-  /* background-color: #ed1c24; */
+.hoveringLetterCreateBtn {
   transform: rotate(135deg);
-  /* transform: scale(1.05); */
   transition-duration: 0.2s;
 }
 

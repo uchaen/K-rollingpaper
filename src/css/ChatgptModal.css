@@ -14,9 +14,11 @@
 .radioLabel {
     font-size: 20px;
     color: var(--font-color);
+    margin-left: 15px;
     margin-right: 10px;
 }
 .sendToGptBtn {
+    margin-left: 150px;
   display: flex;
   justify-content: center;
   align-items: center; 
