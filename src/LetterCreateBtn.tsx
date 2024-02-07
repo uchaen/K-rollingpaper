@@ -16,7 +16,7 @@ function LetterCreateBtn({ selectedPaper }: Props) {
   const [generatedMsg, setGeneratedMsg] = useState<string>();
   useEffect(() => {
     if (generatedMsg) {
-      console.log(generatedMsg);
+      // console.log(generatedMsg);
       setIsChatgptModalOpened(false);
       setIsCreateModalOpened(true);
     }

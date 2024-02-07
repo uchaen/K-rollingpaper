@@ -5,6 +5,7 @@ import {
 } from "react-icons/md";
 import sendToGpt from "./function/sendToGpt";
 import "./css/ChatgptModal.css";
+import Loading from "./Loading";
 
 type Props = {
   changeGeneratedMsg: (value: any) => void;
@@ -16,6 +17,7 @@ function ChatgptModal({ changeGeneratedMsg }: Props) {
   const [inputtedInclude, setInputtedInclude] = useState<string>("");
   const [inputtedPolite, setInputtedPolite] = useState<boolean>(false);
   const [inputtedAddition, setInputtedAddition] = useState<string>("");
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="ChatgptModal">
@@ -87,21 +89,23 @@ function ChatgptModal({ changeGeneratedMsg }: Props) {
 
       <div
         className="sendToGptBtn cursor"
-        onClick={() =>
-          changeGeneratedMsg(
-            sendToGpt(
-              inputtedNickname,
-              inputtedRelation,
-              inputtedTopic,
-              inputtedInclude,
-              inputtedAddition,
-              inputtedPolite
-            )
-          )
-        }
+        onClick={async () => {
+          setLoading(true);
+          const result = await sendToGpt(
+            inputtedNickname,
+            inputtedRelation,
+            inputtedTopic,
+            inputtedInclude,
+            inputtedAddition,
+            inputtedPolite
+          );
+          setLoading(true);
+          changeGeneratedMsg(result);
+        }}
       >
         <img id="gptLogo" src="gptLogo.png" /> &nbsp; ChatGPT에게 부탁하기
       </div>
+      {loading && <Loading/>}
     </div>
   );
 }
