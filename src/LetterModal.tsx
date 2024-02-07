@@ -11,8 +11,9 @@ type Props = {
   usage: string;
   letterObj?: InterfaceLetter;
   selectedPaper?: Paper;
+  generatedMsg?: string;
 };
-function LetterModal({ usage, letterObj, selectedPaper }: Props) {
+function LetterModal({ usage, letterObj, selectedPaper, generatedMsg }: Props) {
   const [inputtedLetterColor, setInputtedLetterColor] = useState<string | any>(
     letterObj?.letterColor
   );
@@ -25,16 +26,19 @@ function LetterModal({ usage, letterObj, selectedPaper }: Props) {
       setInputtedContents(letterObj!.letterContents);
       setInputtedAuthor(letterObj!.letterAuthor);
     }
+    if (usage === "create") {
+      setInputtedContents(generatedMsg!);
+    }
   }, []);
 
   return (
     <div className="LetterModal">
-        <LetterColorSelector
-          changeLetterColor={(value: string) => {
-            setInputtedLetterColor(value);
-          }}
-          inputtedLetterColor={inputtedLetterColor}
-        />
+      <LetterColorSelector
+        changeLetterColor={(value: string) => {
+          setInputtedLetterColor(value);
+        }}
+        inputtedLetterColor={inputtedLetterColor}
+      />
       <textarea
         id="contentsTextarea"
         name="contents"

@@ -1,6 +1,4 @@
-import InterfaceLetter from "./Interface/InterfaceLetter";
-import Paper from "./Interface/InterfacePaper";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   MdRadioButtonChecked,
   MdOutlineRadioButtonUnchecked,
@@ -9,14 +7,15 @@ import sendToGpt from "./function/sendToGpt";
 import "./css/ChatgptModal.css";
 
 type Props = {
-  selectedPaper: Paper;
+  changeGeneratedMsg: (value: any) => void;
 };
-function ChatgptModal({ selectedPaper }: Props) {
+function ChatgptModal({ changeGeneratedMsg }: Props) {
   const [inputtedNickname, setInputtedNickname] = useState<string>("");
   const [inputtedTopic, setInputtedTopic] = useState<string>("");
   const [inputtedRelation, setInputtedRelation] = useState<string>("");
   const [inputtedInclude, setInputtedInclude] = useState<string>("");
-  const [inputtedPolite, setInputtedPolite] = useState<boolean>(true);
+  const [inputtedPolite, setInputtedPolite] = useState<boolean>(false);
+  const [inputtedAddition, setInputtedAddition] = useState<string>("");
 
   return (
     <div className="ChatgptModal">
@@ -24,7 +23,7 @@ function ChatgptModal({ selectedPaper }: Props) {
       <input
         type="text"
         className="marginTop"
-        placeholder="내가 부르는 호칭"
+        placeholder="내가 부르는 호칭 (ex. 길동아)"
         onChange={(e) => {
           setInputtedNickname(e.target.value);
         }}
@@ -32,7 +31,7 @@ function ChatgptModal({ selectedPaper }: Props) {
       <input
         type="text"
         className="marginTop"
-        placeholder="나와의 관계"
+        placeholder="나와의 관계 (ex. 회사동기)"
         onChange={(e) => {
           setInputtedRelation(e.target.value);
         }}
@@ -40,7 +39,7 @@ function ChatgptModal({ selectedPaper }: Props) {
       <input
         type="text"
         className="marginTop"
-        placeholder="편지 주제"
+        placeholder="편지 주제 (ex. 작별인사)"
         onChange={(e) => {
           setInputtedTopic(e.target.value);
         }}
@@ -48,9 +47,17 @@ function ChatgptModal({ selectedPaper }: Props) {
       <input
         type="text"
         className="marginTop"
-        placeholder="포함시킬 단어"
+        placeholder="포함시킬 단어 (ex. 잘지내)"
         onChange={(e) => {
           setInputtedInclude(e.target.value);
+        }}
+      />
+      <input
+        type="text"
+        className="marginTop"
+        placeholder="추가로 부탁할 내용 (ex. 친한 말투로 써줘)"
+        onChange={(e) => {
+          setInputtedAddition(e.target.value);
         }}
       />
       <div className="marginTop radioWrapper">
@@ -77,15 +84,19 @@ function ChatgptModal({ selectedPaper }: Props) {
           />
         )}
       </div>
+
       <div
         className="sendToGptBtn cursor"
         onClick={() =>
-          sendToGpt(
-            inputtedNickname,
-            inputtedRelation,
-            inputtedTopic,
-            inputtedInclude,
-            inputtedPolite
+          changeGeneratedMsg(
+            sendToGpt(
+              inputtedNickname,
+              inputtedRelation,
+              inputtedTopic,
+              inputtedInclude,
+              inputtedAddition,
+              inputtedPolite
+            )
           )
         }
       >

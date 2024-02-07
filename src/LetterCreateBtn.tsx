@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./css/LetterCreateBtn.css";
 import LetterModal from "./LetterModal";
 import Modal from "./Modal";
@@ -13,6 +13,14 @@ function LetterCreateBtn({ selectedPaper }: Props) {
   const [isFabOpened, setIsFabOpened] = useState(false);
   const [isChatgptModalOpened, setIsChatgptModalOpened] = useState(false);
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
+  const [generatedMsg, setGeneratedMsg] = useState<string>();
+  useEffect(() => {
+    if (generatedMsg) {
+      console.log(generatedMsg);
+      setIsChatgptModalOpened(false);
+      setIsCreateModalOpened(true);
+    }
+  }, [generatedMsg]);
 
   return (
     <div className="LetterCreateBtn">
@@ -46,12 +54,18 @@ function LetterCreateBtn({ selectedPaper }: Props) {
       </div>
       {isCreateModalOpened && (
         <Modal closeModal={() => setIsCreateModalOpened(false)}>
-          <LetterModal usage="create" selectedPaper={selectedPaper} />
+          <LetterModal
+            usage="create"
+            selectedPaper={selectedPaper}
+            generatedMsg={generatedMsg}
+          />
         </Modal>
       )}
       {isChatgptModalOpened && (
         <Modal closeModal={() => setIsChatgptModalOpened(false)}>
-          <ChatgptModal selectedPaper={selectedPaper} />
+          <ChatgptModal
+            changeGeneratedMsg={(value: any) => setGeneratedMsg(value)}
+          />
         </Modal>
       )}
     </div>
