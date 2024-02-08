@@ -8,9 +8,10 @@ import deletePaper from "./function/deletePaper";
 
 type Props = {
   selectedPaper?: Paper;
+  listLength? : number;
   usage: string;
 };
-function PaperModal({ selectedPaper, usage }: Props) {
+function PaperModal({ selectedPaper, usage, listLength }: Props) {
   const [inputtedTitle, setInputtedTitle] = useState<string>("");
   const [inputtedPw, setInputtedPw] = useState("");
 
@@ -37,7 +38,7 @@ function PaperModal({ selectedPaper, usage }: Props) {
         <Password
           usage={usage}
           changeInputtedPw={(value: any) => setInputtedPw(value)}
-          startCreate={() => createPaper(inputtedTitle, inputtedPw)}
+          startCreate={() => createPaper(inputtedTitle, inputtedPw, listLength!)}
           startUpdate={() =>
             updatePaper(selectedPaper!.paperId, inputtedTitle, inputtedPw)
           }

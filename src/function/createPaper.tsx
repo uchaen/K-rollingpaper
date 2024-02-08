@@ -1,4 +1,4 @@
-function createPaper(paperTitle: string, paperPw: string) {
+function createPaper(paperTitle: string, paperPw: string, listLength:number) {
   if (paperTitle) {
     fetch(`http://localhost:8080/paper`, {
       method: "POST",
@@ -10,6 +10,7 @@ function createPaper(paperTitle: string, paperPw: string) {
         paperPw: paperPw,
       }),
     }).then(() => {
+      sessionStorage.setItem("selectedPaper", String(listLength));
       window.location.reload();
     });
   } else {
