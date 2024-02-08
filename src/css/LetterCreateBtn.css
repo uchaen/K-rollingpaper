@@ -52,8 +52,3 @@
     /* background-color: #ed1c24; */
   background-color: var(--point-color);
 }
-
-#gptLogo {
-  width: 30px;
-  height: 30px;
-}

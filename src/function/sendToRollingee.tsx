@@ -1,4 +1,4 @@
-const sendToGpt = async (
+const sendToRollingee = async (
   nickname: string,
   relation: string,
   topic: string,
@@ -39,4 +39,4 @@ const sendToGpt = async (
     return resultresult;
 }
 
-export default sendToGpt;
+export default sendToRollingee;

@@ -3,21 +3,21 @@ import "./css/LetterCreateBtn.css";
 import LetterModal from "./LetterModal";
 import Modal from "./Modal";
 import Paper from "./Interface/InterfacePaper";
-import { GoPencil } from "react-icons/go";
-import ChatgptModal from "./ChatgptModal";
+import { RiRobot2Line, RiPencilLine  } from "react-icons/ri";
+import RollingeeModal from "./RollingeeModal";
 
 type Props = {
   selectedPaper: Paper;
 };
 function LetterCreateBtn({ selectedPaper }: Props) {
   const [isFabOpened, setIsFabOpened] = useState(false);
-  const [isChatgptModalOpened, setIsChatgptModalOpened] = useState(false);
+  const [isRollingeeModalOpened, setIsRollingeeModalOpened] = useState(false);
   const [isCreateModalOpened, setIsCreateModalOpened] = useState(false);
   const [generatedMsg, setGeneratedMsg] = useState<string>();
   useEffect(() => {
     if (generatedMsg) {
       // console.log(generatedMsg);
-      setIsChatgptModalOpened(false);
+      setIsRollingeeModalOpened(false);
       setIsCreateModalOpened(true);
     }
   }, [generatedMsg]);
@@ -39,15 +39,15 @@ function LetterCreateBtn({ selectedPaper }: Props) {
           <div className="fab" onClick={() => setIsFabOpened(false)}>
             <div
               className="fabBtn cursor"
-              onClick={() => setIsChatgptModalOpened(true)}
+              onClick={() => setIsRollingeeModalOpened(true)}
             >
-              <img id="gptLogo" src="gptLogoBlk.png" />
+              <RiRobot2Line size={30}/>
             </div>
             <div
               className="fabBtn cursor"
               onClick={() => setIsCreateModalOpened(true)}
             >
-              <GoPencil size={30} />
+              <RiPencilLine size={30} />
             </div>
           </div>
         )}
@@ -61,9 +61,9 @@ function LetterCreateBtn({ selectedPaper }: Props) {
           />
         </Modal>
       )}
-      {isChatgptModalOpened && (
-        <Modal closeModal={() => setIsChatgptModalOpened(false)}>
-          <ChatgptModal
+      {isRollingeeModalOpened && (
+        <Modal closeModal={() => setIsRollingeeModalOpened(false)}>
+          <RollingeeModal
             changeGeneratedMsg={(value: any) => setGeneratedMsg(value)}
           />
         </Modal>

@@ -3,14 +3,15 @@ import {
   MdRadioButtonChecked,
   MdOutlineRadioButtonUnchecked,
 } from "react-icons/md";
-import sendToGpt from "./function/sendToGpt";
-import "./css/ChatgptModal.css";
+import { RiRobot2Line } from "react-icons/ri";
+import sendToRollingee from "./function/sendToRollingee";
+import "./css/RollingeeModal.css";
 import Loading from "./Loading";
 
 type Props = {
   changeGeneratedMsg: (value: any) => void;
 };
-function ChatgptModal({ changeGeneratedMsg }: Props) {
+function RollingeeModal({ changeGeneratedMsg }: Props) {
   const [inputtedNickname, setInputtedNickname] = useState<string>("");
   const [inputtedTopic, setInputtedTopic] = useState<string>("");
   const [inputtedRelation, setInputtedRelation] = useState<string>("");
@@ -20,8 +21,8 @@ function ChatgptModal({ changeGeneratedMsg }: Props) {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="ChatgptModal">
-      <div>ChatGPT에게 편지를 대신 써달라고 해보아요~</div>
+    <div className="RollingeeModal">
+      <div className="infoComment"> <RiRobot2Line/>&nbsp; 롤링이에게 편지를 대신 써달라고 해보아요~</div>
       <input
         type="text"
         className="marginTop"
@@ -88,10 +89,10 @@ function ChatgptModal({ changeGeneratedMsg }: Props) {
       </div>
 
       <div
-        className="sendToGptBtn cursor"
+        className="sendToRollingeeBtn cursor"
         onClick={async () => {
           setLoading(true);
-          const result = await sendToGpt(
+          const result = await sendToRollingee(
             inputtedNickname,
             inputtedRelation,
             inputtedTopic,
@@ -103,11 +104,11 @@ function ChatgptModal({ changeGeneratedMsg }: Props) {
           changeGeneratedMsg(result);
         }}
       >
-        <img id="gptLogo" src="gptLogo.png" /> &nbsp; ChatGPT에게 부탁하기
+        <RiRobot2Line size={30} /> &nbsp; 롤링이에게 부탁하기
       </div>
       {loading && <Loading/>}
     </div>
   );
 }
 
-export default ChatgptModal;
+export default RollingeeModal;
