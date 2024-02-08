@@ -12,6 +12,7 @@ function deletePaper(paperId: number, paperPw: string) {
     .then((res) => res.json())
     .then((res) => {
       if (res) {
+        sessionStorage.clear();
         window.location.reload();
       } else {
         window.alert("비밀번호가 일치하지 않습니다.");
