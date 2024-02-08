@@ -9,7 +9,7 @@ function updateLetter(
     inputtedLetterColor = "white";
   }
   fetch(`http://localhost:8080/letter/update`, {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },

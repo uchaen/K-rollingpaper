@@ -1,7 +1,7 @@
 function updatePaper(paperId: number, paperTitle: string, paperPw: string) {
   if (paperTitle) {
     fetch(`http://localhost:8080/paper/update`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
