@@ -5,15 +5,18 @@ import Paper from "./Interface/InterfacePaper";
 import createPaper from "./function/createPaper";
 import updatePaper from "./function/updatePaper";
 import deletePaper from "./function/deletePaper";
+import Modal from "./Modal";
+import DeleteAlert from "./DeleteAlert";
 
 type Props = {
   selectedPaper?: Paper;
-  listLength? : number;
+  listLength?: number;
   usage: string;
 };
 function PaperModal({ selectedPaper, usage, listLength }: Props) {
   const [inputtedTitle, setInputtedTitle] = useState<string>("");
   const [inputtedPw, setInputtedPw] = useState("");
+  const [isDeleteAlertOpened, setIsDeleteAlertOpened] = useState(false);
 
   useEffect(() => {
     if (usage === "update") {
@@ -38,13 +41,21 @@ function PaperModal({ selectedPaper, usage, listLength }: Props) {
         <Password
           usage={usage}
           changeInputtedPw={(value: any) => setInputtedPw(value)}
-          startCreate={() => createPaper(inputtedTitle, inputtedPw, listLength!)}
+          startCreate={() =>
+            createPaper(inputtedTitle, inputtedPw, listLength!)
+          }
           startUpdate={() =>
             updatePaper(selectedPaper!.paperId, inputtedTitle, inputtedPw)
           }
-          startDelete={() => deletePaper(selectedPaper!.paperId, inputtedPw)}
+          startDelete={() => setIsDeleteAlertOpened(true)}
         />
       </div>
+      {isDeleteAlertOpened && (
+        <DeleteAlert
+          startDelete={() => deletePaper(selectedPaper!.paperId, inputtedPw)}
+          cancelDelete={() => setIsDeleteAlertOpened(false)}
+        />
+      )}
     </div>
   );
 }

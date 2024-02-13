@@ -6,6 +6,7 @@ import updateLetter from "./function/updateLetter";
 import deleteLetter from "./function/deleteLetter";
 import { useState, useEffect } from "react";
 import LetterColorSelector from "./LetterColorSelector";
+import DeleteAlert from "./DeleteAlert";
 
 type Props = {
   usage: string;
@@ -20,6 +21,7 @@ function LetterModal({ usage, letterObj, selectedPaper, generatedMsg }: Props) {
   const [inputtedContents, setInputtedContents] = useState<string>("");
   const [inputtedAuthor, setInputtedAuthor] = useState<string>("");
   const [inputtedPw, setInputtedPw] = useState<string>("");
+  const [isDeleteAlertOpened, setIsDeleteAlertOpened] = useState(false);
 
   useEffect(() => {
     if (usage === "update") {
@@ -82,9 +84,15 @@ function LetterModal({ usage, letterObj, selectedPaper, generatedMsg }: Props) {
               inputtedLetterColor
             )
           }
-          startDelete={() => deleteLetter(letterObj!.letterId, inputtedPw)}
+          startDelete={() => setIsDeleteAlertOpened(true)}
         />
       </div>
+      {isDeleteAlertOpened && (
+        <DeleteAlert
+          startDelete={() => deleteLetter(letterObj!.letterId, inputtedPw)}
+          cancelDelete={() => setIsDeleteAlertOpened(false)}
+        />
+      )}
     </div>
   );
 }
