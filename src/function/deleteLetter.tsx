@@ -1,5 +1,5 @@
 function deleteLetter(letterId: number, letterPw: string) {
-  fetch(`http://localhost:8080/letter/delete`, {
+  fetch(`${process.env.REACT_APP_SERVER_URL}/letter/delete`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

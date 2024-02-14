@@ -1,6 +1,6 @@
 function updatePaper(paperId: number, paperTitle: string, paperPw: string) {
   if (paperTitle) {
-    fetch(`http://localhost:8080/paper/update`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/paper/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

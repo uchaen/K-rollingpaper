@@ -8,7 +8,7 @@ function createLetter(
   if (!inputtedLetterColor) {
     inputtedLetterColor = "white";
   }
-  fetch(`http://localhost:8080/letter`, {
+  fetch(`${process.env.REACT_APP_SERVER_URL}/letter`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

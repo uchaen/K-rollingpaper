@@ -8,7 +8,7 @@ function updateLetter(
   if (!inputtedLetterColor) {
     inputtedLetterColor = "white";
   }
-  fetch(`http://localhost:8080/letter/update`, {
+  fetch(`${process.env.REACT_APP_SERVER_URL}/letter/update`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

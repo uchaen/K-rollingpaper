@@ -1,6 +1,6 @@
 function createPaper(paperTitle: string, paperPw: string, listLength:number) {
   if (paperTitle) {
-    fetch(`http://localhost:8080/paper`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/paper`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

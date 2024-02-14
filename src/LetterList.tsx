@@ -12,7 +12,7 @@ function LetterList({ selectedPaper }: Props) {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8080/letter/list?paperId=${selectedPaper.paperId}`,
+      `${process.env.REACT_APP_SERVER_URL}/letter/list?paperId=${selectedPaper.paperId}`,
       {
         method: "GET",
       }

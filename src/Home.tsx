@@ -16,7 +16,7 @@ function Home() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:8080/paper/list", {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/paper/list`, {
       method: "GET",
     })
       .then((res) => res.json())

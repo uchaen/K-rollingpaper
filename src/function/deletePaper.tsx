@@ -1,5 +1,5 @@
 function deletePaper(paperId: number, paperPw: string) {
-  fetch(`http://localhost:8080/paper/delete`, {
+  fetch(`${process.env.REACT_APP_SERVER_URL}/paper/delete`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
