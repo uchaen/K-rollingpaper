@@ -4,8 +4,8 @@ import {
   MdOutlineRadioButtonUnchecked,
 } from "react-icons/md";
 import { RiRobot2Line } from "react-icons/ri";
-import sendToRollingee from "./function/sendToRollingee";
 import "./css/RollingeeModal.css";
+import sendToRollingee from "./function/sendToRollingee";
 import Loading from "./Loading";
 
 type Props = {

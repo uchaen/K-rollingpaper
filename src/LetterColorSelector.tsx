@@ -1,6 +1,6 @@
-import "./css/LetterColorSelector.css";
 import { useState, useEffect } from "react";
 import { PiCheckFat } from "react-icons/pi";
+import "./css/LetterColorSelector.css";
 
 type Props = {
   changeLetterColor: (value: any) => void;

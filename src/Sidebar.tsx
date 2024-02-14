@@ -1,17 +1,18 @@
-import "./css/Sidebar.css";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
+import "./css/Sidebar.css";
+import InterfacePaper from "./Interface/InterfacePaper";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
-import Paper from "./Interface/InterfacePaper";
+
 
 type Props = {
   changeSelectedPaper: (value: any) => void;
-  fetchPaperList: Array<Paper>;
+  fetchPaperList: Array<InterfacePaper>;
 };
 function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
-  const [paperList, setPaperList] = useState<Array<Paper>>();
-  const [selectedPaper, setSelectedPaper] = useState<Paper>({
+  const [paperList, setPaperList] = useState<Array<InterfacePaper>>();
+  const [selectedPaper, setSelectedPaper] = useState<InterfacePaper>({
     paperId: 0,
     paperTitle: "",
   });

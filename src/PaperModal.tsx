@@ -1,15 +1,14 @@
-import "./css/PaperModal.css";
 import { useState, useEffect } from "react";
-import Password from "./Password";
-import Paper from "./Interface/InterfacePaper";
+import "./css/PaperModal.css";
+import InterfacePaper from "./Interface/InterfacePaper";
 import createPaper from "./function/createPaper";
 import updatePaper from "./function/updatePaper";
 import deletePaper from "./function/deletePaper";
-import Modal from "./Modal";
+import Password from "./Password";
 import DeleteAlert from "./DeleteAlert";
 
 type Props = {
-  selectedPaper?: Paper;
+  selectedPaper?: InterfacePaper;
   listLength?: number;
   usage: string;
 };

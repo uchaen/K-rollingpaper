@@ -1,8 +1,8 @@
+import { useState } from "react";
+import "./css/Letter.css";
 import InterfaceLetter from "./Interface/InterfaceLetter";
 import LetterModal from "./LetterModal";
 import Modal from "./Modal";
-import "./css/Letter.css";
-import { useState } from "react";
 
 type Props = {
   letterObj: InterfaceLetter;

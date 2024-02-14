@@ -1,5 +1,4 @@
 import "./css/Password.css";
-import { SetStateAction } from "react";
 
 type Props = {
   usage: string;
@@ -8,7 +7,6 @@ type Props = {
   startUpdate: ()=>void;
   startDelete: ()=>void;
 };
-
 function Password({ usage, changeInputtedPw, startCreate, startUpdate, startDelete}: Props) {
   return (
     <div className="Password">

@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/Modal.css";
+
 type Props = {
   children: React.ReactNode;
   closeModal: () => void;

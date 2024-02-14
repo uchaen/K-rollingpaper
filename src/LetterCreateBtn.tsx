@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
+import { RiRobot2Line, RiPencilLine  } from "react-icons/ri";
 import "./css/LetterCreateBtn.css";
+import InterfacePaper from "./Interface/InterfacePaper";
 import LetterModal from "./LetterModal";
 import Modal from "./Modal";
-import Paper from "./Interface/InterfacePaper";
-import { RiRobot2Line, RiPencilLine  } from "react-icons/ri";
 import RollingeeModal from "./RollingeeModal";
 
 type Props = {
-  selectedPaper: Paper;
+  selectedPaper: InterfacePaper;
 };
 function LetterCreateBtn({ selectedPaper }: Props) {
   const [isFabOpened, setIsFabOpened] = useState(false);
@@ -16,7 +16,6 @@ function LetterCreateBtn({ selectedPaper }: Props) {
   const [generatedMsg, setGeneratedMsg] = useState<string>();
   useEffect(() => {
     if (generatedMsg) {
-      // console.log(generatedMsg);
       setIsRollingeeModalOpened(false);
       setIsCreateModalOpened(true);
     }

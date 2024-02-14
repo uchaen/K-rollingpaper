@@ -1,11 +1,11 @@
-import Letter from "./Letter";
-import Paper from "./Interface/InterfacePaper";
-import "./css/LetterList.css";
 import { useEffect, useState } from "react";
+import "./css/LetterList.css";
+import InterfacePaper from "./Interface/InterfacePaper";
 import InterfaceLetter from "./Interface/InterfaceLetter";
+import Letter from "./Letter";
 
 type Props = {
-  selectedPaper: Paper;
+  selectedPaper: InterfacePaper;
 };
 function LetterList({ selectedPaper }: Props) {
   const [letterList, setLetterList] = useState<Array<InterfaceLetter>>([]);

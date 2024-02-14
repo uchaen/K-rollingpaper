@@ -1,7 +1,7 @@
-interface Paper {
+interface InterfacePaper {
   paperId: number;
   paperTitle: string;
   paperPw?: string;
 }
 
-export default Paper;
+export default InterfacePaper;

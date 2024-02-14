@@ -1,12 +1,12 @@
-import "./css/Header.css";
-import Paper from "./Interface/InterfacePaper";
 import { useState } from "react";
 import { HiPencilAlt } from "react-icons/hi";
+import "./css/Header.css";
+import InterfacePaper from "./Interface/InterfacePaper";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
 
 type Props = {
-  selectedPaper: Paper;
+  selectedPaper: InterfacePaper;
 };
 function Header({ selectedPaper }: Props) {
   const [isUpdateModalOpened, setIsUpdateModalOpened] = useState(false);

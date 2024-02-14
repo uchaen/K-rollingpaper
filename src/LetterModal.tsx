@@ -1,17 +1,17 @@
+import { useState, useEffect } from "react";
 import InterfaceLetter from "./Interface/InterfaceLetter";
-import Paper from "./Interface/InterfacePaper";
-import Password from "./Password";
+import InterfacePaper from "./Interface/InterfacePaper";
 import createLetter from "./function/createLetter";
 import updateLetter from "./function/updateLetter";
 import deleteLetter from "./function/deleteLetter";
-import { useState, useEffect } from "react";
+import Password from "./Password";
 import LetterColorSelector from "./LetterColorSelector";
 import DeleteAlert from "./DeleteAlert";
 
 type Props = {
   usage: string;
   letterObj?: InterfaceLetter;
-  selectedPaper?: Paper;
+  selectedPaper?: InterfacePaper;
   generatedMsg?: string;
 };
 function LetterModal({ usage, letterObj, selectedPaper, generatedMsg }: Props) {
