@@ -5,6 +5,8 @@ type Props = {
   children: React.ReactNode;
   closeModal: () => void;
 };
+
+// 재사용 가능한 모달창에 대한 컴포넌트입니다
 function Modal({ children, closeModal }: Props) {
   function closeM() {
     closeModal();
@@ -16,7 +18,7 @@ function Modal({ children, closeModal }: Props) {
         <button id="modalCloseBtn" onClick={closeM}>
           ✖
         </button>
-        {children}
+        {children} {/*모달 내용 */}
       </div>
     </div>
   );

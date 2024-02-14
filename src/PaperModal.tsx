@@ -12,6 +12,8 @@ type Props = {
   listLength?: number;
   usage: string;
 };
+
+// 롤링페이퍼 생성, 수정을 할 수 있는 모달 컴포넌트입니다
 function PaperModal({ selectedPaper, usage, listLength }: Props) {
   const [inputtedTitle, setInputtedTitle] = useState<string>("");
   const [inputtedPw, setInputtedPw] = useState("");

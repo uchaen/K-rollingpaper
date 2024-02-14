@@ -1,3 +1,4 @@
+// 로딩 화면을 띄워주는 컴포넌트입니다
 const Loading = () => {
     const styleObj = {
       display: "flex",

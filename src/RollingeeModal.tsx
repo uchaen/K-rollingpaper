@@ -11,6 +11,8 @@ import Loading from "./Loading";
 type Props = {
   changeGeneratedMsg: (value: any) => void;
 };
+
+// 부탁할 내용을 입력하고, 롤링이에게 편지 대필을 부탁할 수 있는 모달 컴포넌트입니다
 function RollingeeModal({ changeGeneratedMsg }: Props) {
   const [inputtedNickname, setInputtedNickname] = useState<string>("");
   const [inputtedTopic, setInputtedTopic] = useState<string>("");

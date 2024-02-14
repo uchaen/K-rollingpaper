@@ -7,6 +7,8 @@ type Props = {
   startUpdate: ()=>void;
   startDelete: ()=>void;
 };
+
+// 모달 컴포넌트 안에서 비밀번호 입력 후 fetch 함수를 실행할 수 있는 컴포넌트입니다
 function Password({ usage, changeInputtedPw, startCreate, startUpdate, startDelete}: Props) {
   return (
     <div className="Password">

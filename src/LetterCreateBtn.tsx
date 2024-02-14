@@ -9,6 +9,8 @@ import RollingeeModal from "./RollingeeModal";
 type Props = {
   selectedPaper: InterfacePaper;
 };
+
+// 플로팅 버튼에 해당하는 컴포넌트입니다
 function LetterCreateBtn({ selectedPaper }: Props) {
   const [isFabOpened, setIsFabOpened] = useState(false);
   const [isRollingeeModalOpened, setIsRollingeeModalOpened] = useState(false);

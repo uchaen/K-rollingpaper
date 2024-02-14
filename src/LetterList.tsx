@@ -8,6 +8,8 @@ import Letter from "./Letter";
 type Props = {
   selectedPaper: InterfacePaper;
 };
+
+// 메인 페이지 속 편지 리스트에 대한 컴포넌트입니다
 function LetterList({ selectedPaper }: Props) {
   const [letterList, setLetterList] = useState<Array<InterfaceLetter>>([]);
 

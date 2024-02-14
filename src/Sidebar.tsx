@@ -9,6 +9,8 @@ type Props = {
   changeSelectedPaper: (value: any) => void;
   fetchPaperList: Array<InterfacePaper>;
 };
+
+// 메인 화면에서 좌측 사이드바에 해당하는 컴포넌트입니다
 function Sidebar({ changeSelectedPaper, fetchPaperList }: Props) {
   const [paperList, setPaperList] = useState<Array<InterfacePaper>>();
   const [selectedPaper, setSelectedPaper] = useState<InterfacePaper>({

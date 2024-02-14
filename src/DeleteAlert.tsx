@@ -4,6 +4,8 @@ type Props = {
   startDelete: () => void;
   cancelDelete: () => void;
 };
+
+// 삭제 전 확인을 위한 알림창에 대한 컴포넌트입니다
 function DeleteAlert({ startDelete, cancelDelete }: Props) {
   return (
     <div className=" Modal" onClick={cancelDelete}>

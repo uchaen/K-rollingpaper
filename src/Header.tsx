@@ -8,6 +8,8 @@ import PaperModal from "./PaperModal";
 type Props = {
   selectedPaper: InterfacePaper;
 };
+
+// 메인 화면에서 상단 헤더바에 해당하는 컴포넌트입니다
 function Header({ selectedPaper }: Props) {
   const [isUpdateModalOpened, setIsUpdateModalOpened] = useState(false);
   return (

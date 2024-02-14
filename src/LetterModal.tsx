@@ -14,6 +14,8 @@ type Props = {
   selectedPaper?: InterfacePaper;
   generatedMsg?: string;
 };
+
+// 편지 생성, 수정을 할 수 있는 모달 컴포넌트입니다
 function LetterModal({ usage, letterObj, selectedPaper, generatedMsg }: Props) {
   const [inputtedLetterColor, setInputtedLetterColor] = useState<string | any>(
     letterObj?.letterColor

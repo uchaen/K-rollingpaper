@@ -7,6 +7,7 @@ import Sidebar from "./Sidebar";
 import LetterList from "./LetterList";
 import LetterCreateBtn from "./LetterCreateBtn";
 
+// 메인 화면을 출력하는 컴포넌트입니다
 function Home() {
   const [fetchPaperList, setFetchPaperList] = useState<Array<InterfacePaper>>([
     { paperId: 0, paperTitle: "" },

@@ -6,6 +6,8 @@ type Props = {
   changeLetterColor: (value: any) => void;
   inputtedLetterColor: string;
 };
+
+// LetteModal 컴포넌트 속 배경색 선택 기능에 해당하는 컴포넌트입니다
 function LetterColorSelector({ changeLetterColor, inputtedLetterColor }: Props) {
   const letterColorList = ["white", "red", "orange", "yellow", "green", "blue", "purple", "black"];
   const [selectedColor, setSelectedColor] = useState<string>(
