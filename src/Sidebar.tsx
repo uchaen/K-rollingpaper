@@ -5,7 +5,6 @@ import InterfacePaper from "./Interface/InterfacePaper";
 import Modal from "./Modal";
 import PaperModal from "./PaperModal";
 
-
 type Props = {
   changeSelectedPaper: (value: any) => void;
   fetchPaperList: Array<InterfacePaper>;

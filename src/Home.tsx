@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./css/Home.css";
 import InterfacePaper from "./Interface/InterfacePaper";
+import readPaperList from "./function/readPaperList";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import LetterList from "./LetterList";
@@ -16,13 +17,9 @@ function Home() {
   });
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/paper/list`, {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setFetchPaperList(res);
-      });
+    readPaperList().then((result: Array<InterfacePaper>) => {
+      setFetchPaperList(result);
+    });
   }, []);
 
   return (

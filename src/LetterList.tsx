@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./css/LetterList.css";
 import InterfacePaper from "./Interface/InterfacePaper";
 import InterfaceLetter from "./Interface/InterfaceLetter";
+import readLetterList from "./function/readLetterList";
 import Letter from "./Letter";
 
 type Props = {
@@ -11,16 +12,11 @@ function LetterList({ selectedPaper }: Props) {
   const [letterList, setLetterList] = useState<Array<InterfaceLetter>>([]);
 
   useEffect(() => {
-    fetch(
-      `${process.env.REACT_APP_SERVER_URL}/letter/list?paperId=${selectedPaper.paperId}`,
-      {
-        method: "GET",
+    readLetterList(selectedPaper.paperId).then(
+      (result: Array<InterfaceLetter>) => {
+        setLetterList(result);
       }
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setLetterList(res);
-      });
+    );
   }, [selectedPaper]);
 
   return (
