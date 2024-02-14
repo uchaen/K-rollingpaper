@@ -1,3 +1,4 @@
+// sendToRollingee 함수는 chatgpt 서버에 msg를 넘겨 ai에 의해 생성된 결과를 반환합니다.
 const sendToRollingee = async (
   nickname: string,
   relation: string,
@@ -16,8 +17,6 @@ const sendToRollingee = async (
   if (polite) msg += `꼭 존댓말을 사용해서 문장을 작성해줘. `;
   else msg += `꼭 반말을 사용해서 문장을 작성해줘. `;
   msg += `내가 말한 조건들을 꼭 지켜서 롤링페이퍼 내용을 대신 써줘.`;
-
-  // console.log(msg);
 
   const resultresult = await fetch(`https://api.openai.com/v1/chat/completions`, {
     method: "POST",

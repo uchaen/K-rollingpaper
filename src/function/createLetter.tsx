@@ -1,3 +1,4 @@
+// createLetter 함수는 서버에 파라미터값들을 넘겨 편지를 생성합니다.
 function createLetter(
   letterContents: string,
   letterAuthor: string,

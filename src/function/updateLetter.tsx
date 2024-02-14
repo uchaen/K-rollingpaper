@@ -1,3 +1,4 @@
+// updateLetter 함수는 서버에서 파라미터값에 해당하는 편지를 수정합니다.
 function updateLetter(
   letterId: number,
   letterContents: string,

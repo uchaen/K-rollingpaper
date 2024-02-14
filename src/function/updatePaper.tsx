@@ -1,3 +1,4 @@
+// updatePaper 함수는 서버에서 파라미터값에 해당하는 롤링페이퍼를 수정합니다.
 function updatePaper(paperId: number, paperTitle: string, paperPw: string) {
   if (paperTitle) {
     fetch(`${process.env.REACT_APP_SERVER_URL}/paper/update`, {

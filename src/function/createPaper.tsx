@@ -1,3 +1,4 @@
+// createPaper 함수는 서버에 파라미터값들을 넘겨 롤링페이퍼를 생성합니다.
 function createPaper(paperTitle: string, paperPw: string, listLength:number) {
   if (paperTitle) {
     fetch(`${process.env.REACT_APP_SERVER_URL}/paper`, {
