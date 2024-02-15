@@ -1,7 +1,7 @@
 // deletePaper 함수는 서버에서 파라미터값에 해당하는 롤링페이퍼를 삭제합니다.
 function deletePaper(paperId: number, paperPw: string) {
   fetch(`${process.env.REACT_APP_SERVER_URL}/paper/delete`, {
-    method: "POST",
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
