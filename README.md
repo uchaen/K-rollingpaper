@@ -22,3 +22,6 @@ K-롤링페이퍼 프로젝트의 프론트엔드 리포지토리입니다.<br/>
 
 ## 📝 개발 문서
 https://uuchaen.notion.site/K-Rollingpaper-709e4007aea24434bf28ec3ea5fc7a43?pvs=4
+
+## 🎬 시연 영상
+https://youtu.be/lOxRUtqgGcg
